@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bx021li0a33x8"
+path="res://.godot/imported/Hey Vsauce, Michael here but it’s earrape.mp3-40e48404adae6c1724a74bc263f3a766.mp3str"
+
+[deps]
+
+source_file="res://assets/Hey Vsauce, Michael here but it’s earrape.mp3"
+dest_files=["res://.godot/imported/Hey Vsauce, Michael here but it’s earrape.mp3-40e48404adae6c1724a74bc263f3a766.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

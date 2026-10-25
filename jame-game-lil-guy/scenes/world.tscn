@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://4h67m3a8jitq"]
 
 [ext_resource type="PackedScene" uid="uid://cui1o0s55xg8d" path="res://scenes/player.tscn" id="1_nnsk1"]
+[ext_resource type="Script" uid="uid://dnuworwrdco83" path="res://scenes/label.gd" id="1_qfnet"]
+[ext_resource type="Texture2D" uid="uid://g8b8hh7wwcb1" path="res://assets/vsauce.jpg" id="1_rwgxs"]
+[ext_resource type="AudioStream" uid="uid://bx021li0a33x8" path="res://assets/Hey Vsauce, Michael here but it’s earrape.mp3" id="3_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://cyds0axn3vf1o" path="res://scenes/electron.tscn" id="5_71j4m"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_t8nj7"]
 size = Vector2(1000, 100)
@@ -9,18 +13,86 @@ size = Vector2(1000, 100)
 size = Vector2(1000, 100)
 
 [node name="World" type="Node2D" unique_id=1134399439]
+scale = Vector2(1.6800005, 1.6800005)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1491200503]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1007370316 node_paths=PackedStringArray("player")]
+modulate = Color(0.6272288, 0.08441555, 0.19336268, 1)
+offset_left = 13.0
+offset_top = 11.0
+offset_right = 74.0
+offset_bottom = 34.0
+text = "Score: 0"
+script = ExtResource("1_qfnet")
+player = NodePath("../../Player")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1595485824]
+offset_right = 1152.0
+offset_bottom = 608.0
+texture = ExtResource("1_rwgxs")
 
 [node name="Player" parent="." unique_id=1599053323 instance=ExtResource("1_nnsk1")]
-position = Vector2(578, 361)
-jump_force = 600
+position = Vector2(576, 508)
+scale = Vector2(0.47879526, 0.47964823)
 
 [node name="Platform" type="StaticBody2D" parent="." unique_id=227723484]
-position = Vector2(500, 598)
+position = Vector2(576, 627)
+scale = Vector2(1.1600062, 0.39999998)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Platform" unique_id=1405715044]
-modulate = Color(0.2745, 0.61, 0.1525, 1)
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-1, 2.5000002)
 mesh = SubResource("QuadMesh_t8nj7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=2134252438]
-position = Vector2(-1, 0)
+position = Vector2(-1, 2.5000002)
+scale = Vector2(1, 1.0100398)
 shape = SubResource("RectangleShape2D_v1d6d")
+
+[node name="Platform2" type="StaticBody2D" parent="." unique_id=1765734450]
+position = Vector2(853.0001, 556)
+scale = Vector2(0.43420553, 0.23598099)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform2" unique_id=345953755]
+position = Vector2(-1, 2.5000002)
+mesh = SubResource("QuadMesh_t8nj7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" unique_id=1985478035]
+position = Vector2(-1, 2.5000002)
+scale = Vector2(1, 1.0100398)
+shape = SubResource("RectangleShape2D_v1d6d")
+
+[node name="Platform3" type="StaticBody2D" parent="." unique_id=2082698505]
+position = Vector2(327.00003, 375.99997)
+scale = Vector2(-0.034402847, -2.6880922)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform3" unique_id=1913124668]
+position = Vector2(-1, 2.5000002)
+mesh = SubResource("QuadMesh_t8nj7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=41126414]
+position = Vector2(-1, 2.5000002)
+scale = Vector2(1, 1.0100398)
+shape = SubResource("RectangleShape2D_v1d6d")
+
+[node name="Platform4" type="StaticBody2D" parent="." unique_id=439918858]
+position = Vector2(425, 486)
+scale = Vector2(0.1611824, 0.3458376)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform4" unique_id=1168709324]
+position = Vector2(-1, 2.5000002)
+mesh = SubResource("QuadMesh_t8nj7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4" unique_id=12519456]
+position = Vector2(-1, 2.5000002)
+scale = Vector2(1, 1.0100398)
+shape = SubResource("RectangleShape2D_v1d6d")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1532953287]
+stream = ExtResource("3_4wyf3")
+volume_db = -24.5
+autoplay = true
+
+[node name="Area2D" parent="." unique_id=1578284463 instance=ExtResource("5_71j4m")]
+position = Vector2(39.88094, 110.71425)
